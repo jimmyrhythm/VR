@@ -17,11 +17,12 @@ AFRAME.registerComponent('gravity', {
   tick: function(){
   var prev=this.el.getAttribute('position');
   var vel=this.el.getAttribute('gravity');
-   if (prev.y>=0)
-   {prev.y+=vel.y;
-   vel.y+=-0.001;}else{
-   vel.y=-vel.y*0.9;
-   prev.y=0;
+   if (prev.y>=0) //if above the 'floor'
+   {prev.y+=vel.y; //The current position should change by whatever the velocity is.
+   vel.y+=-0.001;//subtract a small amount from the Y part of the velocity, this is acceleration due to gravity.
+   }else{//if at or below the 'floor', time to bounce.
+   vel.y=-vel.y*0.9;// This reverses the direction, and loses 10% of the velocity from the bounce. 
+   prev.y=0; //This is a clumsy way to push the object back to the floor level, otherwise it could get stuck. 
    }
    this.el.setAttribute('position',prev);
    this.el.setAttribute('gravity',vel);
