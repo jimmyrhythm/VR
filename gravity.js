@@ -19,7 +19,10 @@ AFRAME.registerComponent('gravity', {
   var vel=this.el.getAttribute('gravity');
    if (prev.y>0)
    {prev.y+=vel.y;
-   vel.y+=-0.001;}
+   vel.y+=-0.001;}else{
+   vel.y=-vel.y*0.9;
+   prev.y=0;
+   }
    this.el.setAttribute('position',prev);
    this.el.setAttribute('gravity',vel);
      // console.log(prev);
