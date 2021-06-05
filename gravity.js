@@ -1,9 +1,9 @@
 AFRAME.registerComponent('gravity', {
    schema:{
       floor:{type: 'number',default:0 } ,
-      Vx:{type: 'number',default:0 } ,
-      Vy:{type: 'number',default:0 } ,
-      Vz:{type: 'number',default:0 } 
+      x:{type: 'number',default:0 } ,
+      y:{type: 'number',default:0 } ,
+      z:{type: 'number',default:0 } 
 },
   init: function () {
     var el = this.el;
@@ -16,9 +16,11 @@ AFRAME.registerComponent('gravity', {
   },
   tick: function(){
   var prev=this.el.getAttribute('position');
-   prev.y+=0.1;
-     
+  var vel=this.el.getAttribute('gravity');
+   prev.y+=vel.y;
+   vel.y+=-0.001;
    this.el.setAttribute('position',prev);
+   this.el.setAttribute('gravity',vel);
      // console.log(prev);
   
   }
