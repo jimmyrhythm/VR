@@ -17,8 +17,9 @@ AFRAME.registerComponent('gravity', {
   tick: function(){
   var prev=this.el.getAttribute('position');
   var vel=this.el.getAttribute('gravity');
-   prev.y+=vel.y;
-   vel.y+=-0.001;
+   if (prev.y>0)
+   {prev.y+=vel.y;
+   vel.y+=-0.001;}
    this.el.setAttribute('position',prev);
    this.el.setAttribute('gravity',vel);
      // console.log(prev);
