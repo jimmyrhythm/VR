@@ -24,6 +24,8 @@ a-scene {
 <h1>Gravity</h1>
     <a-scene embedded shadow>
       <a-assets>
+        <img id="cloth" src="felt.jpg">
+        <a-mixin id="felt" material="normalMap:#cloth"></a-mixin>
         <a-mixin id="green" material="color: #2b2;roughness: 1; metalness: 0;"></a-mixin>
         <a-mixin id="black" material="color: #111;roughness: 1; metalness: 1;"></a-mixin>
         <a-mixin id="red" material="color: #911;roughness: 1; metalness: 0.7;;"></a-mixin>
