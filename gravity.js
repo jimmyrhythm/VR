@@ -6,7 +6,6 @@ AFRAME.registerComponent('gravity', {
 
   init: function () {
     var el = this.el;
-      var lid=this.data.lidMax;
       var name=  el.getAttribute('id');
       label=document.createElement('a-entity');
       label.setAttribute('text',"value: "+ name + ";font:monoid; color:white; width:1 ; ");
