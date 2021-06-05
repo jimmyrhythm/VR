@@ -2,7 +2,7 @@ AFRAME.registerComponent('gravity', {
    schema:{
       floor:{type: 'number',default:0 } ,
       x:{type: 'number',default:0 } ,
-      y:{type: 'number',default:0 } ,
+      y:{type: 'number',default:0.1 } ,
       z:{type: 'number',default:0 } 
 },
   init: function () {
